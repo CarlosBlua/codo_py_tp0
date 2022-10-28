@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aboreto&family=Pacifico&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="img/red-en-la-nube.ico">
+
+
+
+    <title>TP0 Inicial</title>
+
+    <!-- Esto es solamente para la Api de Bitcoin -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Hasta acá -->
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="https://kit.fontawesome.com/e547f827f8.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="contenedor">
+        <header class="header encabezado">
+            <!-- <h1>logo?</h1> -->
+            <br>
+            <h1>TECHNEWS</h1>
+
+        </header>
+
+        <div class="navbar">
+            <input type="checkbox" id="menu-check">
+                <label id="menu" for="menu-check">
+                    <span id="menu-abrir">&#9776;</span>
+                    <span id="menu-cerrar">X</span>
+                </label>
+            <nav> 
+                <ul class="navbarList">
+                    <li class="navbarListItems">
+                        <a class=btn_1 href="index.html">Home</a>
+                    </li>
+                    <li class="navbarListItems">
+                        <a class=btn_1 href="novedades.html">Novedades</a>
+                    </li>
+                    <!-- <li class="navbarListItems">
+                        <a class=btn_1 href="Smartphones">Smartphones</a>
+                    </li>
+                    <li class="navbarListItems"> 
+                        <a class=btn_1 href="Computadoras">Computadoras</a>
+                    </li> -->
+                    <li class="navbarListItems"> 
+                        <a class=btn_1 href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="navbarListItems">
+                        <a class=btn_1 href="nosotros.html">Nosotros</a>
+                    </li>
+                    <!-- <li class="navbarListItems">
+                        <a class=btn_1 href="Twitter">Twitter</a>
+                    </li>
+                    <li class="navbarListItems">
+                        <a class=btn_1 href="Facebook">Facebook</a>
+                    </li>
+                    <li class="navbarListItems">
+                        <a class=btn_1 href="Instagram">Instagram</a>
+                    </li> -->
+                </ul>
+            </nav>
+        </div>
+
+        <main class="contenido">
+
+            <div class="noticia">
+               
+                <div class="titular">
+                    
+                    <h1>Mercedes incluira en sus vehiculos el sistema de audio espacial de Apple</h1>
+                    <h3>Mercedes incorporara en sus vehiculos un sistema de audio de alta calidad de Apple, te invitamos a conocer un poco mas de sus caracteristicas.</h3>
+
+
+                </div>
+
+                <div class="noticiaFotoContenedor"><img class="noticiaFoto" src="img/art-03.png" alt="portada de noticia" ></div>
+
+                <div class="noticiaCuerpo">
+                    <p>La función Spatial Audio en Apple Music existe desde hace algún tiempo si usa algunos de los auriculares de la compañía. Sin embargo, Mercedes también quiere llevar esta característica exclusiva a sus autos. Será una parte intrínseca del llamado sistema de información y entretenimiento MBUX en el futuro.</p>
+                    <p>En los vehículos de Mercedes, la función estará disponible junto con Dolby Atmos y usará el sistema de altavoces dentro del automóvil. El modelo que cuenta con Spatial Audio es la edición limitada Maybach de Virgil Abloh que comenzó a comercializarse en septiembre.</p>
+                    <p>El automóvil está equipado con 31 altavoces en total: 6 altavoces 3D que suenan desde arriba, 4 altavoces cerca de los oídos alrededor de los asientos delanteros, 8 transductores de sonido dentro de los asientos, 2 amplificadores y un subwoofer de 18,5 litros. La potencia total del sistema tiene una potencia nominal de 1.750 W.</p>
+                    <p>Además de Maybach, Spatial Audio pronto se encontrará en EQS, EQS SUV, EQE y S-Class. La compañía no especificó cuándo estará disponible la función para otros modelos, pero dijo "pronto".</p>
+                    <p>No hace falta decir que Spatial Audio está disponible solo para clientes de pago de Apple Music.</p>  
+                    <br>                 
+
+                </div>
+                <div class="noticiaVolverContenedor">
+                    <a class="noticiaFuente" href="https://www.arenaev.com/mercedes_brings_apples_spatial_audio_to_its_cars-news-872.php" target="_blank">Link a la fuente</a>
+                    <a class="noticiaFuente" href="index.html">Link a la página principal</a>
+                </div>
+
+                
+
+            </div>
+
+        </main>
+
+        <aside class="sidebar">
+            <div class="api" id="app">
+                <h1>Listado de Precio de Bitcoin</h1>
+                <P>Actualizado: {{time}}</P>
+
+                <section v-if="errored">
+                    <p>Lo sentimos, no es posible obtener la información en este momento, por favor intente nuevamente
+                        mas tarde</p>
+                </section>
+
+                <section v-else>
+                    <div v-if="loading">Cargando...</div>
+
+                    <div v-else v-for="currency in info" class="currency">
+                        {{ currency.description }}:
+                        <span>
+                            <span>{{ currency.rate_float | currencydecimal }}</span>
+                        </span>
+                    </div>
+
+                </section>
+            </div>
+            <div>
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet modi tempora quisquam hic eveniet explicabo! Sed itaque aliquid, tempora illum, enim adipisci temporibus necessitatibus ipsa nulla impedit tempore, quis amet?
+                Vero dolorum facilis velit quo odit possimus dicta impedit cumque fuga, enim veritatis omnis animi rem nemo accusamus accusantium? Ad impedit atque neque voluptatem totam non suscipit repudiandae voluptatibus aliquam.
+                Laudantium fugit quae repudiandae velit voluptatem nisi, iure officia, a repellat ipsum nulla aliquid, sequi enim hic deleniti? Exercitationem repudiandae quaerat, doloribus voluptas animi porro iusto ab adipisci quia beatae.
+                Consectetur sed, hic assumenda aut, itaque nostrum eum id harum nisi tempore omnis quisquam, rerum ab inventore nesciunt! Consectetur suscipit non iure architecto temporibus, rerum pariatur perspiciatis! A, sapiente officiis?
+                Obcaecati, nostrum, id beatae veritatis illo sapiente adipisci voluptates voluptatibus illum ad expedita similique possimus doloribus tenetur quam quae amet voluptas voluptate consectetur aliquid dolorem explicabo inventore itaque labore? Beatae.
+                Dolor quis quisquam enim eveniet quas voluptates a earum ducimus! Debitis tempora maiores quae suscipit, commodi quo culpa cupiditate sequi nihil ea, deleniti recusandae ratione dolore id, vitae cum! Expedita.
+                Nisi ullam odio suscipit, itaque odit fugiat animi blanditiis labore magni adipisci ab similique assumenda reiciendis cum reprehenderit amet illo obcaecati earum voluptatem libero repellat. Voluptatibus, deserunt. Praesentium, atque ab.
+                Debitis expedita nemo obcaecati pariatur cumque quibusdam modi aspernatur. Amet, nam perspiciatis nihil dolore autem consequatur officia dolorum, rerum sit maiores animi vero sed explicabo recusandae veritatis doloribus architecto corrupti!
+                Obcaecati quia et sapiente quis, asperiores nulla voluptatum perferendis similique aperiam inventore. Voluptatum nesciunt aut iste suscipit accusantium fuga odit quibusdam neque fugiat facere consequatur totam nihil, nemo ipsam asperiores.
+                Nemo soluta ratione, quae maxime quisquam ipsum quaerat explicabo distinctio molestiae obcaecati quod? Voluptatem delectus aut placeat, sapiente, aliquid voluptatibus nobis magni, consequuntur dolore nulla debitis quis architecto rem animi?
+                Provident commodi, facilis esse totam, optio explicabo aliquid quidem harum, reiciendis mollitia tempore vel cupiditate veritatis eveniet qui iusto nemo rerum? Voluptatem tempore eos numquam laborum assumenda fugit sit quos?
+                Illo, tenetur reiciendis accusamus aperiam sint dignissimos amet repellat sit, commodi facilis, earum sed blanditiis doloribus ad error velit est nam quibusdam consequuntur ea dolorum quod tempore! Ea, est pariatur.
+                Necessitatibus, perspiciatis? Suscipit possimus est dolores sapiente eveniet tempore sequi, a distinctio eos aliquam beatae illo ea vel quo cumque, voluptas sint ex consequuntur mollitia repellat. Corporis aut perferendis rem?
+                Soluta architecto accusantium reprehenderit quod fugiat vel mollitia non voluptate deserunt consequatur laborum nam sapiente sint consequuntur facilis, autem dolores, nihil eius, harum quo commodi! Quibusdam totam aut eum ex.</h1>
+            </div>
+
+        </aside>
+
+        <footer class="footer">
+            <div>
+                <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+                <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
+                <br>
+                <div>
+                    <h1 class="footerTexto">Marcos Miranda / Carlos Blua / Miguel Marulanda -- TPO Comisión 22527</h1>
+                </div>
+            </div>
+        </footer>
+
+
+
+    </div>
+
+    <script src="js/bitcoin.js"></script>
+
+</body>
+
+
+</html>

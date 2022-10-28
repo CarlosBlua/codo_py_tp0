@@ -19,23 +19,31 @@ font-family: 'Roboto', sans-serif;
     --text-color-ligth: rgb(221, 220, 255);
     --article-color: #aef6ff;
     --btn-color: #2f009c;
-    --btn-color-hoover:#7d009c;
+    --btn-color-hoover: #7d009c;
+    --menu-color: black;
+    --menu-color-hover: navy;
+    --bg-color-menu-hover: gray;
+    --bg-color-menu: black;
 }
 
 
 html {
 
+    /* USAMOS MULTIPLOS DE 8 ( PARA HACER PIXEL PERFECT EN ANDROID )  */
     font-size: 8px;
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
+    height: 100vh;
+    width: 100vw;
 }
 
-* {
+/* TODO ESTE SELECTOR "*" SE MODIFICA EN NORMALIZE.CSS  */
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
-}
+} */
 
 a {
     color: beige;
@@ -56,11 +64,12 @@ a {
     Para acomodar los elementos desde el contenedor padre en grid place-content	[align-content] [justify-content] 
  */
     place-content: stretch stretch;
+    place-items:  stretch stretch;
 
 
 
-
-/*     grid-template-areas: 
+    /*LAS TEMPLATE-AREAS ESTAN AL FINAL EN MEDIA-QUERIES
+         grid-template-areas: 
         "header header header header header"
         "navbar navbar navbar navbar navbar"
         "contenido contenido contenido contenido sidebar"
@@ -70,7 +79,7 @@ a {
         "contenido contenido contenido contenido sidebar"
         "contenido contenido contenido contenido sidebar"
         "footer footer footer footer footer";
- */
+    */
 }
 
 
@@ -82,11 +91,16 @@ a {
     justify-content: center;
     justify-items: center;
     grid-area: header;
+    margin-top: 24px;
+    font-size: 6em;
 
 }
 
 
+
 .contenedor .navbar {
+
+
 
     font-size: 2em;
 
@@ -94,27 +108,68 @@ a {
     color: var(--text-color-ligth);
     border: 2px;
     border-radius: 8px;
+    height: auto;
+    width: 98%;
+    padding: 4px;
+    justify-self: center;
+    font-size: 3em;
 
 
+    
     display: flex;
+    /* place-content: space-between; */
     flex-flow: row nowrap;
     align-items: stretch;
     justify-content: space-evenly;
-    flex: auto;
+    /* flex: 1 0 auto; */
 
-
+    /* porque no anda?? claro, UL es un único elemnto para el flex...asi que tecnicamente anda pero no como esperaba jaja  */
 
     grid-area: navbar;
 }
 
-.contenedor .navbar .btn_1 {
+.contenedor .navbar .navbarList{
+
+    
+    list-style: none;
+    position: relative;
+
+    display: grid;
+    /* Acomodo automaticamente todo en columnas  */
+    grid-auto-flow: column; 
+    grid-auto-columns: minmax(max-content, 1fr);
+    /* margin-left: 2em; */
+    gap: 2em;
+
+    align-items: center;
+    justify-items: center;
+    justify-content: stretch;
+    align-content:stretch;
+
+  
+    
+    
+    
+
+}
+
+
+
+
+
+
+
+
+.contenedor .navbar .btn_1
+ {
     background-color: var(--btn-color);
     border: none;
     color: white;
-    border-radius: 24px ;
-    /* padding: 15px 32px; */
+    border-radius: 24px;
+    padding: 0px 8px;
     text-align: center;
-    
+
+
     text-decoration: none;
     /* display: inline-block; */
     font-size: 1em;
@@ -127,6 +182,27 @@ a {
 }
 
 
+/*Esto lo agregué*/
+
+/* .contenedor .navbar li {
+    display: inline-block;
+    position: relative;
+} */
+
+.contenedor .navbar li a {
+    text-decoration: none;
+    font-size: 10px;
+    color: black;
+    transition: 0.8s;
+    padding: 5px;
+}
+
+.contenedor .navbar li a:hover {
+    color: var(--btn-color-hoover);
+    background-color: #aef6ff;
+}
+
+/*Hasta acá*/
 
 
 .contenedor .contenido {
@@ -136,43 +212,267 @@ a {
     flex-wrap: nowrap; */
     flex-flow: column nowrap;
     justify-content: space-evenly;
-    align-items: stretch; /* los articulso deberian ocupar todo el ancho disponible */
-    margin: 24px 24px;
+    align-items: stretch;
+    /* los articulso deberian ocupar todo el ancho disponible */
+/* <<<<<<< Branch-Miguel =======*/
+    margin: 0px 24px;
+    
+    
 
+    /*margin: 0 24px;
+    width: 98%;
+
+    border-radius: 32px;*/
+
+/* >>>>>>> main*/
     gap: 24px 24px;
-
+    border-radius: 32px;
     grid-area: contenido;
 }
 
 .contenedor .contenido .articulo {
+     /* background-color: var(--article-color); */
 
-    background-color: var(--article-color);
+     border: 2px;
+     border-style: dashed;
+     border-radius: 32px;
+ 
+     border-color: rgb(0, 0, 0);
+     z-index: 1;
+ 
+     /* min-height: 200px; */
+     align-items: stretch;
+ 
+     /* min-width: 480px; */
+     /* max-width: 640px; */
+     margin: 12px 24px;
+ 
+     /* flex basis actua sobre el height porque estamos en flex-direction: column; */
+     flex: 0 0 240px;
+ 
+     display: grid;
+ 
+     grid-template-columns: minmax(280px, 1fr) 2fr;
+     /* grid-auto-rows: min-content; */
+
+}
+
+.contenedor .contenido .articulo .titular{
+    /* background-color: var(--titular-bg-color); */
+
+    margin: 24px auto;
+
+    text-align: left;
+
+    font-size: 2rem;
+    color: var(--titular-color);
+
+    display: flex;
+
+    flex-flow: column nowrap;
+    justify-items: center;
+    align-items: center;
+
+    /* grid-area: titular; */
+}
+
+.contenedor .contenido .articulo .titular > h3{
+    margin: 8px auto;
+}
+
+.contenedor .contenido .articulo .titular .seguirLeyendo{
+
+    display: inline-block;
+    justify-self: end;
+    align-self: center;
+    background-color: blue;
+    color: aliceblue;
+    text-decoration: none;
+    /* margin: 0 auto; */
+
+    padding: 10px 20px;
+    border-radius: 32px;
+}
+
+
+.contenedor .contenido .articulo .portada{
+    /* background-color: #dcffd3; */
+
+    display: flex;
+    align-items: center;
+    margin: 8px 8px;
+    /* margin: 32px; */
+    /* padding: 8px; */
+    /* grid-area: portada; */
+}
+
+.contenedor .contenido .articulo .portada .portadaImagen {
+    /* display: flex; */
+
+    aspect-ratio: 1/1;
+
+    /* height: 200px; */
+    /* width: 200px; */
+    object-fit:cover;
+
+    max-width: 260px;
+    max-height: 260px;
+    border-radius: 32px;
+
+    z-index: 0;
+}
+
+.contenedor .contenido .articulo .portada .iframe {
+    /* display: flex; */
+
+    aspect-ratio: 1/1;
+
+    /* height: 200px; */
+    /* width: 200px; */
+    object-fit:cover;
+
+    max-width: 260px;
+    max-height: 260px;
+    border-radius: 32px;
+    z-index: 0;
+}
+
+
+/********************************************************************************************
+****************ESTILOS DE LA NOTICIA HTML APARTE ***********************************************
+************************************************************************/
+
+.contenedor .contenido .noticia {
+    /* background-color: var(--article-color); */
 
     border: 2px;
     border-style: dashed;
-    border-radius: 8px;
+    border-radius: 32px;
 
     border-color: rgb(0, 0, 0);
-
-
+    z-index: 1;
     
-
-    /* min-height: 200px; */
-    align-items: stretch;
-
-    /* min-width: 480px; */
-    /* max-width: 640px; */
     margin: 12px 24px;
+    padding: 8px; /*By CSB */
 
-    /* flex basis actua sobre el height porque estamos en flex-direction: column; */
-    flex: 0 0 240px;
-    
-
-
-
-
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: stretch;
+   
+    /* justify funciona en el eje principal, en este caso vertical  */
 
 }
+
+.contenedor .contenido .noticia .titular{
+
+   /* background-color: var(--titular-bg-color); */
+   margin: 16px auto;
+
+   text-align: left;
+   /* align-self: stretch;
+   justify-self:stretch; */
+
+   font-size: 2rem;
+   color: var(--titular-color);
+}
+
+.contenedor .contenido .noticia .titular > h1{
+    margin-bottom: 8px;
+}
+
+.contenedor .contenido .noticia .noticiaFotoContenedor{
+    
+
+   /* background-color: #dcffd3; */
+   /* align-self: center; */
+   justify-self: center;
+   overflow: hidden;
+   /* flex-shrink: 20; */
+
+   /* POR ALGUNA RAZON ALINEANDO LSO ITEMS AL CENTRO CON ALIGN ITEMS SE ROMPE TODO Y LA IMAGEN NO SE ACHICA NI SE CORTA AL ACHICAR LA PANTALLA ????¡?¡? */
+
+}
+
+.contenedor .contenido .noticia .noticiaFotoContenedor .noticiaFoto {
+
+   
+    
+   aspect-ratio: 1/1;
+   object-fit:cover;
+   /* align-self: center; */
+   /* flex-shrink: 20; */
+
+   flex: 1 1 auto;
+    
+   max-width: 800px;
+   /* max-height: 800px; */
+   border-radius: 32px;
+
+}
+.memeContenedor{
+
+    /* background-color: #dcffd3; */
+    /* align-self: center; */
+    justify-self: center;
+    overflow: hidden;
+    
+    
+    /* flex-shrink: 20; */
+ 
+    /* POR ALGUNA RAZON ALINEANDO LSO ITEMS AL CENTRO CON ALIGN ITEMS SE ROMPE TODO Y LA IMAGEN NO SE ACHICA NI SE CORTA AL ACHICAR LA PANTALLA ????¡?¡? */
+ 
+ }
+.meme {
+    /* !important; */
+    
+    aspect-ratio: 1/1;
+    object-fit:cover;
+    /* align-self: center; */
+    /* flex-shrink: 20; */
+    /* display: block; */
+    max-width: 400px;
+
+    border-radius: 32px;
+ 
+ }
+
+.contenedor .contenido .noticia .noticiaCuerpo{
+
+    margin: 24px auto;
+    /* text-align: left; */
+    text-align: justify;
+ 
+    font-size: 2rem;
+    color: var(--titular-color);
+}
+
+.contenedor .contenido .noticia .noticiaCuerpo > p{
+    margin: 8px 16px;
+}
+
+.contenedor .contenido .noticia .noticiaVolverContenedor{
+
+    display: flex;
+    gap: 4em;
+    margin: 24px auto;
+    font-size: 1.5em;
+    text-align: center;
+
+}
+
+.contenedor .contenido .noticia .noticiaVolverContenedor .noticiaFuente{
+
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+/*******************************************/
 
 .contenedor .sidebar {
 
@@ -183,15 +483,49 @@ a {
     min-width: 80px;
     /* min-height: 80vh; */
     display: flex;
-    justify-content: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-start;
+
 
 
     grid-area: sidebar;
 
 }
 
+/*.contenedor .sidebar .iframe{
+        position: auto;
+        overflow: hidden;
+        width: 100%;
+        top: 1em 
+        height: 55%;
+        width: 80%;
+        align-items: baseline;
+        margin: auto;
+}*/
 
+.sidebarContenedor{
+         /* background-color: var(--article-color); */
+
+         border: 2px;
+         border-style: dashed;
+         border-radius: 32px;
+     
+         border-color: rgb(0, 0, 0);
+         z-index: 1;
+     
+     
+         align-items: stretch;
+         justify-items: stretch;
+         
+         font-size: 3em;
+
+         margin: 24px;
+         
+
+         display: flex;
+  
+}
 .contenedor .footer {
 
     background-color: var(--sections-color);
@@ -201,10 +535,144 @@ a {
     min-height: 100px;
 
     display: flex;
+    text-align: center;
     align-items: center;
     justify-content: center;
+    font-size: 20px;
 
     grid-area: footer;
+}
+
+.contenedor .footer .footerTexto {
+
+    background-color: var(--sections-color);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+
+    grid-area: footer;
+}
+
+
+    /*.contenedor .sidebar .contenedor-iframe{
+        position: auto;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%; 16:9 
+        height: 55%;
+        width: 80%;
+        align-items: baseline;
+        margin: auto;
+        
+    }*/
+    
+    /*.responsive-iframe{
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border-color:  #aef6ff;
+      border-style: double;
+      border: 2 rem;
+    }*/
+
+    .encabezado {
+        font-size: 20px;
+        font-family: 'Roboto', cursive;
+        margin-top: 5px;
+        animation-name:Colores;
+        animation-duration: 5s; 
+        animation-iteration-count:infinite;
+    }
+    
+    @keyframes Colores{
+        0%{color: blue}
+        50%{color: lightseagreen}
+        100%{color: lightskyblue}
+      }
+    
+
+    .contenedor .table{
+        font-size: 20px;
+        border: dashed black;
+        text-align: center;
+        z-index: 9999;
+    
+    }
+
+    .contacto{
+        text-align: center;
+        font-size: 20px;
+        color: black;
+    
+    }
+    
+    .imagenFormulario{
+        opacity: 0.5;
+        margin-top: 25px;
+        
+    }
+
+    input{
+        width: 300px;
+        height: 25px;
+        border: double blue;
+    }
+    
+
+    textarea{
+        width: 300px;
+        height: 250px;
+        border: double blue;
+     }
+     
+     
+     
+      .boton {
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 0.5em 1.2em;
+        background: rgb(10, 89, 141);
+        border: 2px solid;
+        border-radius: 1rem;
+        border-color: #318aac;
+        position: relative;
+        bottom: 15px;
+      }
+     
+      .boton:hover {
+        color: white;
+        box-shadow: 0 5px 15px rgba(49, 138, 172, 1);
+        transition: all 0.1s ease;
+        cursor: pointer;
+      }
+
+      .api{
+
+        text-align: center;
+        font-size: 20px;
+        color: black;
+    }
+
+/* 
+*********************************************************************************************************
+*******************PARA BARRA DE NAVEGACIÓN CON MENÚ HAMBURGUESA************************************¨
+******************************************************************************************
+*/
+
+/* .header .contenedor .navbar {
+    place-content: flex-start;
+} */
+
+#menu,
+#menu-check {
+    display: none;
 }
 
 
@@ -220,41 +688,199 @@ a {
 
     .contenedor {
 
-        grid-template-areas: 
-        "header header header header header"
-        "navbar navbar navbar navbar navbar"
-        "sidebar sidebar sidebar sidebar sidebar"
-        "contenido contenido contenido contenido contenido"
-        "contenido contenido contenido contenido contenido"
-        "contenido contenido contenido contenido contenido"
-        "contenido contenido contenido contenido contenido"
-        "contenido contenido contenido contenido contenido"
-        "footer footer footer footer footer";
+        grid-template-areas:
+            "header header header header header"
+            "navbar navbar navbar navbar navbar"
+            "sidebar sidebar sidebar sidebar sidebar"
+            "contenido contenido contenido contenido contenido"
+            "contenido contenido contenido contenido contenido"
+            "contenido contenido contenido contenido contenido"
+            "contenido contenido contenido contenido contenido"
+            "contenido contenido contenido contenido contenido"
+            "footer footer footer footer footer";
 
     }
 
+    /* 
+*********************************************************************************************************
+*******************PARA BARRA DE NAVEGACIÓN CON MENÚ HAMBURGUESA************************************¨
+******************************************************************************************
+*/
+
+    #menu-check:not(:checked)~nav {
+        display: none;
+    }
+
+    #menu-check:checked~nav {
+        display: block;
+    }
+
+
+    #menu {
+        display: block;
+        color: var(--menu-color);
+        font-size: 1.5em;
+        font-weight: bold;
+        border: 3px solid var(--menu-color);
+        border-radius: 0.3em;
+        position: absolute;
+        right: 0.3em;
+        top: 3.3em;
+
+        /*z-index: 9999;*/
+    }
+
+    #menu:hover {
+        color: var(--menu-color-hover);
+        /*background-color: var(--bg-color-menu-hover);*/
+    }
+
+    #menu-cerrar {
+        display: none;
+    }
+
+    #menu-check:checked~label #menu-abrir {
+        display: none;
+    }
+
+    #menu-check:checked~label #menu-cerrar {
+        display: block;
+    }
+
+
+    .contenedor .navbar ul, .contenedor .navbar li  {
+        display: block;
+        text-align: right;
+        height: 15px;
+        font-size: 80%;
+        padding: 25px;
+        z-index: 9999;
+        
+        /*margin: 40px;*/
+    }
+
+
+    .contenedor .navbar .navbarList{
+
+    
+        list-style: none;
+        position: relative;
+    
+        display:grid;
+        /* Acomodo automaticamente todo en columnas  */
+        grid-auto-flow: row ; 
+        grid-auto-rows: minmax(max-content, 1fr);
+        /* margin-left: 2em; */
+        gap: 0.1em;
+    
+        align-items: center;
+        justify-items: center;
+        justify-content: stretch;
+        align-content:stretch;
+
+    }
+
+    .contenedor .sidebar {
+
+        height: 200px;
+        opacity: 0.2;
+        /*border: 2px;
+        border-radius: 8px;
+    
+        min-width: 80px;
+        min-height: 80vh; 
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    
+    
+        grid-area: sidebar;*/
+    
+    }
+
+    .contenedor .sidebar .contenedor-iframe{
+        /*display: none;*/
+        opacity: 0.4;
+        position: absolute;
+
+    }
+
+    .contenedor .table{
+        font-weight: bold;
+        font-size: 20px;
+        border: dashed black;
+        text-align: center;
+        z-index: 9999;
+    
+    }
+
+    .contacto{
+        text-align: center;
+        font-size: 20px;
+        color: black;
+    
+    }
+    
+    .imagenFormulario{
+        height: 2px;
+        opacity: 0.5;
+        margin-top: 25px;
+    }
+
+    .contenedor .footer .footerTexto {
+
+        background-color: var(--sections-color);
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+    
+        grid-area: footer;
+    }
+
+
 }
+
+
+
+
+
+
+
 
 /* HD desktop  */
 @media screen and (min-width: 640px) and (max-width: 1280px) {
 
     .contenedor {
 
-        grid-template-areas: 
-        "header header header header header"
-        "navbar navbar navbar navbar navbar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "footer footer footer footer footer";
+        grid-template-areas:
+            "header header header header header"
+            "navbar navbar navbar navbar navbar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "footer footer footer footer footer";
 
 
     }
 
-} 
+    /* Esto lo agregué*/
+
+    html {
+
+        font-size: 40%;
+        font-family: 'Roboto', sans-serif;
+        color: var(--text-color);
+        height: 100vh;
+        width: 100vw;
+    }
+
+}
 
 /* Full HD */
 
@@ -262,34 +888,34 @@ a {
 
     .contenedor {
 
-        grid-template-areas: 
-        "header header header header header"
-        "navbar navbar navbar navbar navbar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "footer footer footer footer footer";
+        grid-template-areas:
+            "header header header header header"
+            "navbar navbar navbar navbar navbar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "contenido contenido contenido contenido sidebar"
+            "footer footer footer footer footer";
 
     }
 
     .contenedor .contenido {
         background-color: var(--sections-color);
-         
+
         /* max-width: 2400px; */
         display: flex;
         /*     flex-direction: column;
         flex-wrap: nowrap; */
         flex-flow: row wrap;
-    
+
         justify-content: space-evenly;
         align-content: stretch;
-    
+
         gap: 16px 16px;
-        
-    
+
+
         grid-area: contenido;
     }
 
@@ -304,7 +930,7 @@ a {
 
         flex: 1 0 600px;
 
-        
+
     }
 
-} 
+}
