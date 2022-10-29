@@ -9,13 +9,8 @@
     <!-- GOOGLE FONTS  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Aboreto&family=Pacifico&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Pacifico&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100&display=swap" rel="stylesheet">
     <link rel="icon" href="img/red-en-la-nube.ico">
-
-
-
 
     <title>TP0 Inicial</title>
 
@@ -54,27 +49,12 @@
                     <li class="navbarListItems">
                         <a class=btn_1 href="novedades.html">Novedades</a>
                     </li>
-                    <!-- <li class="navbarListItems">
-                        <a class=btn_1 href="Smartphones">Smartphones</a>
-                    </li>
-                    <li class="navbarListItems"> 
-                        <a class=btn_1 href="Computadoras">Computadoras</a>
-                    </li> -->
                     <li class="navbarListItems">
                         <a class=btn_1 href="contacto.html">Contacto</a>
                     </li>
                     <li class="navbarListItems">
                         <a class=btn_1 href="nosotros.html">Nosotros</a>
                     </li>
-                    <!-- <li class="navbarListItems">
-                        <a class=btn_1 href="Twitter">Twitter</a>
-                    </li>
-                    <li class="navbarListItems">
-                        <a class=btn_1 href="Facebook">Facebook</a>
-                    </li>
-                    <li class="navbarListItems">
-                        <a class=btn_1 href="Instagram">Instagram</a>
-                    </li> -->
                 </ul>
             </nav>
         </div>
@@ -89,67 +69,55 @@
                     </h3>
                     <a href="articulo1.html" class="seguirLeyendo">Seguir Leyendo</a>
                 </div>
-
-
             </div>
+
             <div class="articulo">
                 <div class="portada"><img class="portadaImagen" src="img/art-02.png" alt="portada de noticia"></div>
                 <div class="titular">
-
                     <h1>Huawei nova 10 Pro review</h1>
                     <h3>Te contamos las caracteristicas mas relevantes del nuevo celular de Huawei.</h3>
                     <a href="articulo2.html" class="seguirLeyendo">Seguir Leyendo</a>
                 </div>
-
-
             </div>
+
             <div class="articulo">
                 <div class="portada"><img class="portadaImagen" src="img/art-03.png" alt="portada de noticia"></div>
                 <div class="titular">
-
                     <h1>Mercedes incluira en sus vehiculos el sistema de audio espacial de Apple</h1>
                     <h3>Mercedes incorporara en sus vehiculos un sistema de audio de alta calidad de Apple, te invitamos
                         a conocer un poco mas de sus caracteristicas.</h3>
                     <a href="articulo3.html" class="seguirLeyendo">Seguir Leyendo</a>
                 </div>
-
-
             </div>
+
             <div class="articulo">
                 <div class="portada"><img class="portadaImagen" src="img/art-04.png" alt="portada de noticia"></div>
                 <div class="titular">
-
                     <h1>Marvel anuncia NFT en colaboración con Veve</h1>
                     <h3>Marvel anuncia NFTs que los fans de todo el mundo podrán comprar en la tienda Veve Digital
                         Collectibles.</h3>
                     <a href="articulo4.html" class="seguirLeyendo">Seguir Leyendo</a>
                 </div>
-
-
             </div>
+
             <div class="articulo">
                 <div class="portada"><img class="portadaImagen" src="img/art-05.png" alt="portada de noticia"></div>
                 <div class="titular">
-
                     <h1>DALLE-2 - Inteligencia artificial que crea imagenes de lo que le pidas.</h1>
                     <h3>Esta inteligencia artificial creara imagenes basadas en un descripcion escrita de la imagen que
                         deseas.</h3>
                     <a href="articulo5.html" class="seguirLeyendo">Seguir Leyendo</a>
                 </div>
-
-
             </div>
+
             <div class="articulo">
                 <div class="portada"><img class="portadaImagen" src="img/art-06.png" alt="portada de noticia"></div>
                 <div class="titular">
-
                     <h1>La ESA avala la tecnología de Sateliot para conectar dispositivos 5G IoT con un satélite</h1>
                     <h3>La Agencia Espacial Europea ha respaldado la tecnología impulsada por Sateliot y sus socios para
                         conectar dispositivos del estándar IoT desde su futura constelación de satélites.</h3>
                     <a href="articulo6.html" class="seguirLeyendo">Seguir Leyendo</a>
                 </div>
-
-
             </div>
 
             <div class="articulo">
@@ -157,13 +125,12 @@
                         title="🌎 Nasa Live Stream  - Earth From Space :  Live Views from the ISS">Este enlace no es
                         soportado por el navegador</iframe></div>
                 <div class="titular">
-
                     <h1>Aficionado al Espacio Exterior?</h1>
                     <h3>Acá puedes seguir minuto a minuto el recorrido que realiza diariamente la Estación Espacial
                         Internacional. Disfrútalo!.</h3>
-
                 </div>
-
+            </div>
+        
         </main>
 
         <aside class="sidebar">
@@ -178,16 +145,16 @@
 
                 <section v-else>
                     <div v-if="loading">Cargando...</div>
-
                     <div v-else v-for="currency in info" class="currency">
                         {{ currency.description }}:
                         <span>
                             <span>{{ currency.rate_float | currencydecimal }}</span>
                         </span>
                     </div>
-
                 </section>
+
             </div>
+
             <div class="sidebarContenedor">
                 <div class="sidebarArticulo">
                 <h2>¿Qué es y cómo funciona el bitcoin?</h2>
@@ -210,12 +177,10 @@
             </div>
         </footer>
 
-
     </div>
 
     <script src="js/bitcoin.js"></script>
 
 </body>
-
 
 </html>

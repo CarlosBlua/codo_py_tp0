@@ -1,4 +1,4 @@
-/* GOOGLE FONTS  */
+GOOGLE FONTS 
 
 /* font-family: 'Aboreto', cursive;
 font-family: 'Pacifico', cursive;
@@ -25,7 +25,6 @@ font-family: 'Roboto', sans-serif;
     --bg-color-menu-hover: gray;
     --bg-color-menu: black;
 }
-
 
 html {
 
@@ -66,24 +65,7 @@ a {
     place-content: stretch stretch;
     place-items:  stretch stretch;
 
-
-
-    /*LAS TEMPLATE-AREAS ESTAN AL FINAL EN MEDIA-QUERIES
-         grid-template-areas: 
-        "header header header header header"
-        "navbar navbar navbar navbar navbar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "contenido contenido contenido contenido sidebar"
-        "footer footer footer footer footer";
-    */
 }
-
-
-
 
 .contenedor .header {
     display: flex;
@@ -96,12 +78,7 @@ a {
 
 }
 
-
-
 .contenedor .navbar {
-
-
-
     font-size: 2em;
 
     background-color: var(--sections-color);
@@ -113,8 +90,6 @@ a {
     padding: 4px;
     justify-self: center;
     font-size: 3em;
-
-
     
     display: flex;
     /* place-content: space-between; */
@@ -129,8 +104,6 @@ a {
 }
 
 .contenedor .navbar .navbarList{
-
-    
     list-style: none;
     position: relative;
 
@@ -145,20 +118,7 @@ a {
     justify-items: center;
     justify-content: stretch;
     align-content:stretch;
-
-  
-    
-    
-    
-
 }
-
-
-
-
-
-
-
 
 .contenedor .navbar .btn_1
  {
@@ -168,7 +128,6 @@ a {
     border-radius: 24px;
     padding: 0px 8px;
     text-align: center;
-
 
     text-decoration: none;
     /* display: inline-block; */
@@ -180,7 +139,6 @@ a {
     min-height: 32px;
 
 }
-
 
 /*Esto lo agregué*/
 
@@ -216,8 +174,6 @@ a {
     /* los articulso deberian ocupar todo el ancho disponible */
 /* <<<<<<< Branch-Miguel =======*/
     margin: 0px 24px;
-    
-    
 
     /*margin: 0 24px;
     width: 98%;
@@ -294,7 +250,6 @@ a {
     border-radius: 32px;
 }
 
-
 .contenedor .contenido .articulo .portada{
     /* background-color: #dcffd3; */
 
@@ -337,19 +292,21 @@ a {
     z-index: 0;
 }
 
+/*
+###############################################################
+###     Inicio - Estilos Articulos HTML - Pagina Aparte     ###
+###############################################################
+*/
 
-/********************************************************************************************
-****************ESTILOS DE LA NOTICIA HTML APARTE ***********************************************
-************************************************************************/
-
-.contenedor .contenido .noticia {
+/* .contenedor */
+.contenido
+.noticia {
     /* background-color: var(--article-color); */
-
+    border-color: rgb(0, 0, 0);
     border: 2px;
     border-style: dashed;
     border-radius: 32px;
-
-    border-color: rgb(0, 0, 0);
+    
     z-index: 1;
     
     margin: 12px 24px;
@@ -364,7 +321,10 @@ a {
 
 }
 
-.contenedor .contenido .noticia .titular{
+/* .contenedor */
+.contenido
+.noticia
+.titular {
 
    /* background-color: var(--titular-bg-color); */
    margin: 16px auto;
@@ -377,11 +337,17 @@ a {
    color: var(--titular-color);
 }
 
-.contenedor .contenido .noticia .titular > h1{
+/* .contenedor */
+.contenido
+.noticia
+.titular > h1 {
     margin-bottom: 8px;
 }
 
-.contenedor .contenido .noticia .noticiaFotoContenedor{
+/* .contenedor */
+.contenido
+.noticia
+.noticiaFotoContenedor {
     
 
    /* background-color: #dcffd3; */
@@ -394,9 +360,11 @@ a {
 
 }
 
-.contenedor .contenido .noticia .noticiaFotoContenedor .noticiaFoto {
-
-   
+/* .contenedor */
+.contenido
+.noticia
+.noticiaFotoContenedor
+.noticiaFoto {
     
    aspect-ratio: 1/1;
    object-fit:cover;
@@ -410,6 +378,7 @@ a {
    border-radius: 32px;
 
 }
+
 .memeContenedor{
 
     /* background-color: #dcffd3; */
@@ -417,12 +386,12 @@ a {
     justify-self: center;
     overflow: hidden;
     
-    
     /* flex-shrink: 20; */
  
     /* POR ALGUNA RAZON ALINEANDO LSO ITEMS AL CENTRO CON ALIGN ITEMS SE ROMPE TODO Y LA IMAGEN NO SE ACHICA NI SE CORTA AL ACHICAR LA PANTALLA ????¡?¡? */
  
- }
+}
+
 .meme {
     /* !important; */
     
@@ -435,9 +404,12 @@ a {
 
     border-radius: 32px;
  
- }
+}
 
-.contenedor .contenido .noticia .noticiaCuerpo{
+/* .contenedor */
+.contenido
+.noticia
+.noticiaCuerpo {
 
     margin: 24px auto;
     /* text-align: left; */
@@ -447,11 +419,17 @@ a {
     color: var(--titular-color);
 }
 
-.contenedor .contenido .noticia .noticiaCuerpo > p{
+/* .contenedor */
+.contenido
+.noticia
+.noticiaCuerpo > p {
     margin: 8px 16px;
 }
 
-.contenedor .contenido .noticia .noticiaVolverContenedor{
+/* .contenedor */
+.contenido
+.noticia
+.noticiaVolverContenedor {
 
     display: flex;
     gap: 4em;
@@ -461,18 +439,22 @@ a {
 
 }
 
-.contenedor .contenido .noticia .noticiaVolverContenedor .noticiaFuente{
+/* .contenedor */
+.contenido
+.noticia
+.noticiaVolverContenedor
+.noticiaFuente {
 
     cursor: pointer;
 
 }
 
+/*
+###############################################################
+###      Fin - Estilos Articulos HTML - Pagina Aparte       ###
+###############################################################
+*/
 
-
-
-
-
-/*******************************************/
 
 .contenedor .sidebar {
 
@@ -555,115 +537,84 @@ a {
     grid-area: footer;
 }
 
+.encabezado {
+    font-size: 20px;
+    font-family: 'Roboto', cursive;
+    margin-top: 5px;
+    animation-name:Colores;
+    animation-duration: 5s; 
+    animation-iteration-count:infinite;
+}
+    
+@keyframes Colores{
+    0%{color: blue}
+    50%{color: lightseagreen}
+    100%{color: lightskyblue}
+}
+    
+.contenedor .table{
+    font-size: 20px;
+    border: dashed black;
+    text-align: center;
+    z-index: 9999;
+    
+}
 
-    /*.contenedor .sidebar .contenedor-iframe{
-        position: auto;
-        overflow: hidden;
-        width: 100%;
-        padding-top: 56.25%; 16:9 
-        height: 55%;
-        width: 80%;
-        align-items: baseline;
-        margin: auto;
+.contacto{
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    
+}
+    
+.imagenFormulario{
+    opacity: 0.5;
+    margin-top: 25px;
         
-    }*/
-    
-    /*.responsive-iframe{
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      border-color:  #aef6ff;
-      border-style: double;
-      border: 2 rem;
-    }*/
+}
 
-    .encabezado {
-        font-size: 20px;
-        font-family: 'Roboto', cursive;
-        margin-top: 5px;
-        animation-name:Colores;
-        animation-duration: 5s; 
-        animation-iteration-count:infinite;
-    }
+input{
+    width: 300px;
+    height: 25px;
+    border: double blue;
+}
     
-    @keyframes Colores{
-        0%{color: blue}
-        50%{color: lightseagreen}
-        100%{color: lightskyblue}
-      }
-    
-
-    .contenedor .table{
-        font-size: 20px;
-        border: dashed black;
-        text-align: center;
-        z-index: 9999;
-    
-    }
-
-    .contacto{
-        text-align: center;
-        font-size: 20px;
-        color: black;
-    
-    }
-    
-    .imagenFormulario{
-        opacity: 0.5;
-        margin-top: 25px;
-        
-    }
-
-    input{
-        width: 300px;
-        height: 25px;
-        border: double blue;
-    }
-    
-
-    textarea{
-        width: 300px;
-        height: 250px;
-        border: double blue;
-     }
+textarea{
+    width: 300px;
+    height: 250px;
+    border: double blue;
+}
      
+.boton {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0.5em 1.2em;
+    background: rgb(10, 89, 141);
+    border: 2px solid;
+    border-radius: 1rem;
+    border-color: #318aac;
+    position: relative;
+    bottom: 15px;
+}
      
-     
-      .boton {
-        color: white;
-        font-size: 20px;
-        font-weight: 500;
-        padding: 0.5em 1.2em;
-        background: rgb(10, 89, 141);
-        border: 2px solid;
-        border-radius: 1rem;
-        border-color: #318aac;
-        position: relative;
-        bottom: 15px;
-      }
-     
-      .boton:hover {
-        color: white;
-        box-shadow: 0 5px 15px rgba(49, 138, 172, 1);
-        transition: all 0.1s ease;
-        cursor: pointer;
-      }
+.boton:hover {
+    color: white;
+    box-shadow: 0 5px 15px rgba(49, 138, 172, 1);
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
 
-      .api{
-
-        text-align: center;
-        font-size: 20px;
-        color: black;
-    }
+.api{
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}
 
 /* 
-*********************************************************************************************************
-*******************PARA BARRA DE NAVEGACIÓN CON MENÚ HAMBURGUESA************************************¨
-******************************************************************************************
+*******************************************************
+**** PARA BARRA DE NAVEGACIÓN CON MENÚ HAMBURGUESA ****
+*******************************************************
 */
 
 /* .header .contenedor .navbar {
@@ -675,19 +626,15 @@ a {
     display: none;
 }
 
-
-
 /* 
-*********************************************************************************************************
-*******************HEY! POR ACÁ ESTAN LOS MEDIA QUERY************************************¨
-******************************************************************************************
+#############################################
+###      Media Query - Mobile Device      ###
+#############################################
 */
 
-/* SMALL ANDROID */
-@media screen and (max-width: 640px) {
-
+/* @media screen and (max-width: 640px) { */
+@media screen and (max-width: 420px) {
     .contenedor {
-
         grid-template-areas:
             "header header header header header"
             "navbar navbar navbar navbar navbar"
@@ -702,10 +649,10 @@ a {
     }
 
     /* 
-*********************************************************************************************************
-*******************PARA BARRA DE NAVEGACIÓN CON MENÚ HAMBURGUESA************************************¨
-******************************************************************************************
-*/
+    *****************************************************
+    *** PARA BARRA DE NAVEGACIÓN CON MENÚ HAMBURGUESA ***
+    *****************************************************
+    */
 
     #menu-check:not(:checked)~nav {
         display: none;
@@ -714,7 +661,6 @@ a {
     #menu-check:checked~nav {
         display: block;
     }
-
 
     #menu {
         display: block;
@@ -747,7 +693,6 @@ a {
         display: block;
     }
 
-
     .contenedor .navbar ul, .contenedor .navbar li  {
         display: block;
         text-align: right;
@@ -761,7 +706,6 @@ a {
 
 
     .contenedor .navbar .navbarList{
-
     
         list-style: none;
         position: relative;
@@ -784,18 +728,6 @@ a {
 
         height: 200px;
         opacity: 0.2;
-        /*border: 2px;
-        border-radius: 8px;
-    
-        min-width: 80px;
-        min-height: 80vh; 
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-    
-    
-        grid-area: sidebar;*/
     
     }
 
@@ -829,32 +761,26 @@ a {
     }
 
     .contenedor .footer .footerTexto {
-
+        grid-area: footer;
         background-color: var(--sections-color);
         display: flex;
         text-align: center;
         align-items: center;
         justify-content: center;
         font-size: 15px;
-    
-        grid-area: footer;
+       
     }
-
 
 }
 
+/* 
+#############################################
+######      Media Query - Desktop      ######
+#############################################
+ */
 
-
-
-
-
-
-
-/* HD desktop  */
 @media screen and (min-width: 640px) and (max-width: 1280px) {
-
     .contenedor {
-
         grid-template-areas:
             "header header header header header"
             "navbar navbar navbar navbar navbar"
@@ -866,10 +792,7 @@ a {
             "contenido contenido contenido contenido sidebar"
             "footer footer footer footer footer";
 
-
     }
-
-    /* Esto lo agregué*/
 
     html {
 
@@ -882,12 +805,14 @@ a {
 
 }
 
-/* Full HD */
+/* 
+#############################################
+###     Media Query - Full HD Desktop     ###
+#############################################
+ */
 
 @media screen and (min-width: 1280px) {
-
     .contenedor {
-
         grid-template-areas:
             "header header header header header"
             "navbar navbar navbar navbar navbar"
@@ -898,10 +823,10 @@ a {
             "contenido contenido contenido contenido sidebar"
             "contenido contenido contenido contenido sidebar"
             "footer footer footer footer footer";
-
     }
 
     .contenedor .contenido {
+        grid-area: contenido;
         background-color: var(--sections-color);
 
         /* max-width: 2400px; */
@@ -914,13 +839,10 @@ a {
         align-content: stretch;
 
         gap: 16px 16px;
-
-
-        grid-area: contenido;
+        
     }
 
     .contenedor .contenido .articulo {
-
         min-height: 240px;
 
         /* flex-basis: actua sobre el width porque estamos en row; */
@@ -929,7 +851,6 @@ a {
         flex-grow: 1; */
 
         flex: 1 0 600px;
-
 
     }
 
