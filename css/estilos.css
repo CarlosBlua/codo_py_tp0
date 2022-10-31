@@ -51,7 +51,6 @@ a {
     margin: 0px;
     padding: 0px;
     
-
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(9, auto);
     /* gap: 24px; */
@@ -76,19 +75,18 @@ a {
     padding: 0px;
 
     font-size: 6em;
-
 }
 
 .navbar {
     grid-area: navbar;
     display: flex;
+    /* display: grid; */
     /* place-content: space-between; */
-    flex-flow: row nowrap;
     align-items: stretch;
     justify-content: space-evenly;
-    /* flex: 1 0 auto; */
-    justify-self: center;
-
+    flex-flow: row nowrap;
+    /* justify-self: center;     */
+    
     margin: 6px 12px 6px 12px;
     border: 0px;
     border-radius: 4px;
@@ -96,8 +94,6 @@ a {
 
     color: var(--text-color-ligth);
     height: auto;
-    width: 98%;
-        
     font-size: 3em;
 }
 
@@ -163,62 +159,82 @@ a:hover {
     /* background-color: var(--bg-section-color); */
     grid-area: contenido;
     display: flex;
-    flex-flow: column nowrap;
-    /* flex-direction: column; */
-    /* flex-wrap: nowrap; */
+    /* flex-flow: column nowrap; */
+    flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: stretch;
     /* margin: 0px 24px; */
     margin: 6px 12px 6px 12px;
-    border: 0px;
-    border-radius: 4px;
     padding: 0px;
+    border: 0px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    border-style: dashed;
     
     gap: 24px 24px;
-    
 }
 
 .articulo {
     display: grid;
-    grid-template-columns: minmax(280px, 1fr) 2fr;
-    border: 2px;
-    border-style: dashed;
-    border-radius: 4px;
-    border-color: rgb(0, 0, 0);
-    z-index: 1;
+    /* grid-template-columns: minmax(280px, 1fr) 2fr; */
+    /* grid-template-columns: 1fr 2fr; */
     align-items: stretch;
-    margin: 12px 24px;
-    /* flex basis actua sobre el height porque estamos en flex-direction: column; */
-    flex: 0 0 240px;
-    
+    /* flex: 0 0 240px; */
     /* grid-auto-rows: min-content; */
+    margin: 12px 24px;
+    padding: 0px;
+    border: 2px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    border-style: dashed;
+    /* flex basis actua sobre el height porque estamos en flex-direction: column; */
+    
+    /* z-index: 1; */
 }
 
 .portada{
     display: flex;
     align-items: center;
     margin: 8px 8px;
+    padding: 0px;
+    border: 2px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    border-style: dashed;
 }
 
 .portadaImagen {
     aspect-ratio: 1/1;
     object-fit:cover;
-    max-width: 260px;
-    max-height: 260px;
-    border-radius: 32px;
-    z-index: 0;
+    max-width: 230px;
+    max-height: 230px;
+    margin: 0px 0px;
+    padding: 0px;
+    border: 2px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    border-style: dashed;
 }
 
 .titular{
+    background-color: var(--bg-titular-color);
     display: flex;
-    flex-flow: column nowrap;
     justify-items: center;
     align-items: center;
-    background-color: var(--bg-titular-color);
-    margin: 24px auto;
+    /* flex-direction: column; */
+    /* flex-wrap: nowrap; */
+    flex-flow: column nowrap;
+    margin: 0px 0px;
+    padding: 0px;
+    border: 2px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    border-style: dashed;
+    /* margin: 24px auto; */
+    color: var(--titular-color);
     text-align: left;
     font-size: 2rem;
-    color: var(--titular-color);
 }
 
 .titular > h1{
@@ -230,23 +246,28 @@ a:hover {
 }
 
 .seguirLeyendo{
-    display: inline-block;
-    justify-self: end;
-    align-self: center;
     background-color: blue;
+    display: inline-block;
+    justify-self: center;
+    align-self: center;
     color: aliceblue;
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 32px;
+    border-radius: 4px;
 }
 
 .iframe {
     aspect-ratio: 1/1;
     object-fit:cover;
-    max-width: 260px;
-    max-height: 260px;
-    border-radius: 32px;
-    z-index: 0;
+    max-width: 230px;
+    max-height: 230px;
+    margin: 0px 0px;
+    padding: 0px;
+    border: 2px;
+    border-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    border-style: dashed;
+    /* z-index: 0; */
 }
 
 /*
@@ -371,14 +392,12 @@ a:hover {
 /* .contenedor */
 .sidebar {
     grid-area: sidebar;
-   
-    min-width: 80px;
-    /* min-height: 80vh; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-
+    /* min-width: 80px; */ 
+    /* min-height: 80vh; */
     margin: 6px 12px 6px 12px;
     border: 0px;
     border-radius: 4px;
@@ -536,8 +555,8 @@ textarea{
             "contenido contenido contenido contenido contenido"
             "contenido contenido contenido contenido contenido"
             "footer footer footer footer footer";
-
     }
+
     .header{
         grid-area: header;
         background-color: var(--bg-mb-section-color);
@@ -551,6 +570,14 @@ textarea{
     .contenido {
         grid-area: contenido;
         background-color: var(--bg-mb-section-color);
+    }
+
+    .portada{
+        display: none;
+    }
+    
+    .portadaImagen {
+        display: none;
     }
 
     .sidebar{
@@ -744,18 +771,23 @@ textarea{
     .contenido {
         grid-area: contenido;
         background-color: var(--bg-ds-section-color);
-        display: flex;
-        /* flex-direction: column; */
-        /* flex-wrap: nowrap; */
-        flex-flow: row wrap;
-
-        justify-content: space-evenly;
-        align-content: stretch;
+        /* display: flex; */
+        /* flex-flow: row wrap; */
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+        /* justify-content: space-evenly; */
+        /* align-content: stretch; */
 
         gap: 16px 16px;
-
     }
 
+    .articulo {
+        /* grid-template-columns: minmax(280px, 1fr) 2fr; */
+        grid-template-columns: auto 2fr;
+        flex: 1 0 200px;
+        min-height: 240px;
+    }
+   
     .sidebar{
         grid-area: sidebar;
         background-color: var(--bg-ds-section-color);
@@ -787,8 +819,6 @@ textarea{
             "footer footer footer footer footer";
     }
 
-    /* .contenedor */
-    
     .header{
         grid-area: header;
         background-color: var(--bg-lg-section-color);
@@ -813,17 +843,11 @@ textarea{
         gap: 16px 16px;
     }
 
-    /* .contenedor */
-    /* .contenido */
     .articulo {
-        min-height: 240px;
-
-        /* flex-basis: actua sobre el width porque estamos en row; */
-        /* flex-basis: 640px;
-
-        flex-grow: 1; */
-
+        /* grid-template-columns: minmax(280px, 1fr) 2fr; */
+        grid-template-columns: auto 2fr;
         flex: 1 0 600px;
+        min-height: 240px;
     }
 
     .sidebar{
